@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KWS 복지 가이드 — 사회복지 서비스 안내</title>
+  <meta name="description" content="대한사회복지회가 제공하는 사회복지 서비스 안내. 기초생활보장, 장애인 복지, 노인 복지, 아동복지 등 다양한 복지 서비스 신청 방법과 지원 내용을 안내합니다.">
+  <meta name="keywords" content="사회복지, 복지 서비스, 기초생활보장, 장애인 복지, 노인 복지, 아동복지, 의료급여, 복지 신청">
+  <meta property="og:title" content="KWS 복지 가이드 — 사회복지 서비스 안내">
+  <meta property="og:description" content="기초생활보장, 장애인·노인·아동 복지 서비스 신청 방법과 지원 내용을 한곳에서 확인하세요.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://kwsdeveloper.github.io/kws-portal-web/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* =====================================================
+       디자인 시스템 토큰
+    ===================================================== */
+    :root {
+      --primary:    #1D9BF0;
+      --primary-dark: #1a8dd8;
+      --text:       #0F1419;
+      --sub:        #536471;
+      --bg:         #FFFFFF;
+      --surface:    #FFFFFF;
+      --border:     #EFF3F4;
+      --divider:    #D4D8DD;
+      --surface-raised: #F7F9FA;
+      --primary-a08: rgba(29,155,240,.08);
+      --shadow:     0 2px 8px rgba(0,0,0,.08);
+      --shadow-md:  0 4px 16px rgba(0,0,0,.12);
+      --radius:     10px;
+      --font: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+      --header-bg:     linear-gradient(135deg, #0B3654 0%, #174F33 100%);
+      --header-accent: #4B9640;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --text:           #E7E9EA;
+        --sub:            #71767B;
+        --bg:             #0F0F0F;
+        --surface:        #1A1A1A;
+        --border:         #2F3336;
+        --divider:        #3A3D42;
+        --surface-raised: #222327;
+        --shadow:         0 2px 8px rgba(0,0,0,.4);
+        --shadow-md:      0 4px 16px rgba(0,0,0,.5);
+      }
+    }
+    :root[data-theme="dark"] {
+      --text:           #E7E9EA;
+      --sub:            #71767B;
+      --bg:             #0F0F0F;
+      --surface:        #1A1A1A;
+      --border:         #2F3336;
+      --divider:        #3A3D42;
+      --surface-raised: #222327;
+      --shadow:         0 2px 8px rgba(0,0,0,.4);
+      --shadow-md:      0 4px 16px rgba(0,0,0,.5);
+    }
+
+    /* =====================================================
+       리셋 & 기본
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-weight: 700; line-height: 1.3; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* =====================================================
+       헤더
+    ===================================================== */
+    .site-header {
+      background: var(--header-bg);
+      border-bottom: 3px solid var(--header-accent);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 56px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+    }
+    .site-logo {
+      display: flex; align-items: center; gap: 10px; color: #fff;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,.18);
+      border: 1.5px solid rgba(75,150,64,.6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #fff;
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-name { font-size: 15px; font-weight: 700; line-height: 1.2; }
+    .logo-sub  { font-size: 10px; color: rgba(255,255,255,.65); }
+
+    .site-nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link {
+      color: rgba(255,255,255,.82); font-size: 13.5px; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px;
+      transition: background .15s, color .15s;
+    }
+    .nav-link:hover, .nav-link.active { background: rgba(255,255,255,.15); color: #fff; }
+
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .theme-btn {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.75); background: none; border: none; cursor: pointer;
+      transition: background .15s;
+    }
+    .theme-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+    .ham-btn {
+      display: none;
+      width: 36px; height: 36px; border-radius: 8px;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.82);
+      align-items: center; justify-content: center;
+    }
+
+    /* 모바일 메뉴 */
+    .mobile-nav {
+      display: none; flex-direction: column;
+      background: #0B3654;
+      border-bottom: 2px solid var(--header-accent);
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: rgba(255,255,255,.85); font-size: 15px; font-weight: 500;
+      padding: 14px 24px; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .mobile-nav a:hover { background: rgba(255,255,255,.08); color: #fff; }
+
+    /* =====================================================
+       히어로 섹션
+    ===================================================== */
+    .hero {
+      background: linear-gradient(160deg, #0B3654 0%, #174F33 60%, #1a6b44 100%);
+      padding: 64px 24px 72px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(75,150,64,.3); border: 1px solid rgba(75,150,64,.6);
+      color: #7dd87a; font-size: 12px; font-weight: 700; letter-spacing: .08em;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      color: #fff; margin-bottom: 16px; letter-spacing: -.03em;
+    }
+    .hero p {
+      font-size: clamp(14px, 2vw, 17px);
+      color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto 32px;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 13px 26px; border-radius: var(--radius);
+      font-size: 14.5px; font-weight: 700; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+    }
+    .btn-hero:hover { transform: translateY(-1px); }
+    .btn-hero-primary {
+      background: var(--primary); color: #fff;
+      box-shadow: 0 6px 20px rgba(29,155,240,.35);
+    }
+    .btn-hero-primary:hover { box-shadow: 0 8px 24px rgba(29,155,240,.45); }
+    .btn-hero-outline {
+      background: transparent; color: #fff;
+      border: 1.5px solid rgba(255,255,255,.4);
+    }
+    .btn-hero-outline:hover { border-color: rgba(255,255,255,.7); }
+
+    /* 히어로 통계 */
+    .hero-stats {
+      display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,.15);
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 700; color: #fff; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; }
+
+    /* =====================================================
+       레이아웃
+    ===================================================== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 64px 0; }
+    .section-sm { padding: 48px 0; }
+    .section-title {
+      font-size: clamp(20px, 3vw, 28px);
+      margin-bottom: 8px; letter-spacing: -.03em;
+    }
+    .section-sub {
+      font-size: 14px; color: var(--sub); margin-bottom: 36px;
+    }
+    .section-header { margin-bottom: 36px; }
+
+    /* =====================================================
+       카드 그리드
+    ===================================================== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+    .card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 16px;
+    }
+    .card-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      padding: 3px 10px; border-radius: 20px;
+      margin-bottom: 10px; letter-spacing: .04em;
+    }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 13.5px; color: var(--sub); line-height: 1.65; }
+    .card-footer {
+      margin-top: 16px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-meta { font-size: 11.5px; color: var(--sub); }
+    .card-link {
+      font-size: 12.5px; font-weight: 700; color: var(--primary);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .card-link:hover { text-decoration: underline; }
+
+    /* 색상 조합 */
+    .cat-blue   { background: rgba(29,155,240,.12); color: #1a7fc4; }
+    .cat-green  { background: rgba(34,197,94,.12);  color: #15803d; }
+    .cat-orange { background: rgba(249,115,22,.12); color: #c2410c; }
+    .cat-purple { background: rgba(168,85,247,.12); color: #7e22ce; }
+    .cat-red    { background: rgba(239,68,68,.12);  color: #b91c1c; }
+    .cat-teal   { background: rgba(20,184,166,.12); color: #0f766e; }
+    .icon-blue   { background: rgba(29,155,240,.12); }
+    .icon-green  { background: rgba(34,197,94,.12); }
+    .icon-orange { background: rgba(249,115,22,.12); }
+    .icon-purple { background: rgba(168,85,247,.12); }
+    .icon-red    { background: rgba(239,68,68,.12); }
+    .icon-teal   { background: rgba(20,184,166,.12); }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .cat-blue   { color: #60b4e8; }
+      :root:not([data-theme="light"]) .cat-green  { color: #4ade80; }
+      :root:not([data-theme="light"]) .cat-orange { color: #fb923c; }
+      :root:not([data-theme="light"]) .cat-purple { color: #c084fc; }
+      :root:not([data-theme="light"]) .cat-red    { color: #f87171; }
+      :root:not([data-theme="light"]) .cat-teal   { color: #2dd4bf; }
+    }
+    :root[data-theme="dark"] .cat-blue   { color: #60b4e8; }
+    :root[data-theme="dark"] .cat-green  { color: #4ade80; }
+    :root[data-theme="dark"] .cat-orange { color: #fb923c; }
+    :root[data-theme="dark"] .cat-purple { color: #c084fc; }
+    :root[data-theme="dark"] .cat-red    { color: #f87171; }
+    :root[data-theme="dark"] .cat-teal   { color: #2dd4bf; }
+
+    /* =====================================================
+       신청 절차 섹션
+    ===================================================== */
+    .process-bg {
+      background: var(--surface-raised);
+      border-radius: 16px; padding: 48px 40px;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px; margin-top: 32px;
+    }
+    .step {
+      text-align: center; padding: 24px 16px;
+      background: var(--surface); border-radius: 12px;
+      border: 1.5px solid var(--border);
+      position: relative;
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .step h4 { font-size: 15px; margin-bottom: 8px; }
+    .step p  { font-size: 12.5px; color: var(--sub); }
+
+    /* =====================================================
+       공지 배너
+    ===================================================== */
+    .notice-banner {
+      background: rgba(29,155,240,.08);
+      border: 1.5px solid rgba(29,155,240,.25);
+      border-radius: var(--radius); padding: 16px 20px;
+      display: flex; align-items: flex-start; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .notice-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .notice-text { font-size: 13.5px; }
+    .notice-text strong { color: var(--primary); }
+    .notice-list { list-style: none; padding: 0; }
+    .notice-list li {
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px;
+    }
+    .notice-list li:last-child { border-bottom: none; }
+    .notice-badge {
+      display: inline-block; font-size: 10.5px; font-weight: 700;
+      padding: 2px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 1px;
+    }
+    .badge-new { background: #dc2626; color: #fff; }
+    .badge-update { background: var(--primary); color: #fff; }
+    .badge-info { background: var(--surface-raised); color: var(--sub); border: 1px solid var(--border); }
+    .notice-date { font-size: 11.5px; color: var(--sub); margin-left: auto; flex-shrink: 0; padding-left: 8px; }
+
+    /* =====================================================
+       정보 박스 (유용한 팁)
+    ===================================================== */
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .info-box {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .info-box h4 { font-size: 15px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .info-box ul {
+      list-style: none; padding: 0;
+    }
+    .info-box ul li {
+      font-size: 13.5px; color: var(--sub);
+      padding: 7px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .info-box ul li:last-child { border-bottom: none; }
+    .info-box ul li::before { content: "›"; color: var(--primary); font-weight: 700; }
+
+    /* =====================================================
+       CTA 섹션
+    ===================================================== */
+    .cta-section {
+      background: var(--header-bg);
+      border-radius: 16px; padding: 48px 40px; text-align: center;
+    }
+    .cta-section h2 { color: #fff; font-size: 24px; margin-bottom: 12px; }
+    .cta-section p  { color: rgba(255,255,255,.7); font-size: 14.5px; margin-bottom: 28px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: #0B3654;
+      padding: 12px 28px; border-radius: var(--radius);
+      font-size: 14px; font-weight: 700;
+      transition: transform .15s; cursor: pointer;
+    }
+    .cta-btn:hover { transform: translateY(-1px); }
+
+    /* =====================================================
+       푸터
+    ===================================================== */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1.5px solid var(--border);
+      margin-top: 64px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 40px 24px 24px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+      margin-bottom: 32px;
+    }
+    .footer-brand .logo-text-f { margin-bottom: 12px; }
+    .footer-brand-name { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .footer-brand-desc { font-size: 13px; color: var(--sub); line-height: 1.6; }
+    .footer-col h5 { font-size: 12.5px; font-weight: 700; color: var(--sub); letter-spacing: .06em; margin-bottom: 14px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 13.5px; color: var(--sub); transition: color .15s; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-bottom {
+      padding-top: 20px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+    }
+    .footer-copy { font-size: 12px; color: var(--sub); }
+    .footer-links { display: flex; gap: 16px; }
+    .footer-links a { font-size: 12px; color: var(--sub); transition: color .15s; }
+    .footer-links a:hover { color: var(--primary); }
+
+    /* =====================================================
+       반응형
+    ===================================================== */
+    @media (max-width: 768px) {
+      .site-nav, .header-actions .theme-btn { display: none; }
+      .ham-btn { display: flex; }
+      .hero { padding: 48px 20px 56px; }
+      .hero-stats { gap: 24px; }
+      .process-bg { padding: 32px 20px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .section { padding: 48px 0; }
+    }
+    @media (max-width: 520px) {
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* 구분선 */
+    .divider {
+      height: 1.5px; background: var(--border);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 헤더 ===== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo" aria-label="KWS 복지 가이드 홈">
+      <div class="logo-mark">KW</div>
+      <div class="logo-text">
+        <span class="logo-name">KWS 복지 가이드</span>
+        <span class="logo-sub">Korea Social Welfare Guide</span>
+      </div>
+    </a>
+
+    <nav class="site-nav" aria-label="주 메뉴">
+      <a href="index.html" class="nav-link active">홈</a>
+      <a href="welfare-types.html" class="nav-link">복지 서비스</a>
+      <a href="how-to-apply.html" class="nav-link">신청 방법</a>
+      <a href="news.html" class="nav-link">복지 소식</a>
+      <a href="about.html" class="nav-link">소개</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-btn" id="themeToggle" aria-label="다크/라이트 모드 전환" title="테마 전환">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <button class="ham-btn" id="hamBtn" aria-label="메뉴 열기" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="모바일 메뉴">
+    <a href="index.html">홈</a>
+    <a href="welfare-types.html">복지 서비스</a>
+    <a href="how-to-apply.html">신청 방법</a>
+    <a href="news.html">복지 소식</a>
+    <a href="about.html">소개</a>
+    <a href="contact.html">문의하기</a>
+  </nav>
+</header>
+
+<!-- ===== 히어로 ===== -->
+<section class="hero" aria-label="서비스 소개">
+  <p class="hero-eyebrow">대한사회복지회 공식 안내</p>
+  <h1>내게 맞는 복지 서비스를<br>한눈에 찾아보세요</h1>
+  <p>기초생활보장부터 장애인·노인·아동 복지까지,<br>신청 방법과 지원 내용을 쉽고 빠르게 안내합니다.</p>
+  <div class="hero-actions">
+    <a href="welfare-types.html" class="btn-hero btn-hero-primary">복지 서비스 전체 보기</a>
+    <a href="how-to-apply.html" class="btn-hero btn-hero-outline">신청 방법 안내</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">6가지</div>
+      <div class="stat-label">주요 복지 서비스</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4단계</div>
+      <div class="stat-label">간편 신청 절차</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">365일</div>
+      <div class="stat-label">온라인 정보 제공</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 공지사항 ===== -->
+<section class="section-sm" style="background: var(--surface-raised);">
+  <div class="container">
+    <div class="notice-banner">
+      <span class="notice-icon">📢</span>
+      <p class="notice-text"><strong>복지로(www.bokjiro.go.kr)</strong>에서 대부분의 복지 서비스를 온라인으로 신청할 수 있습니다. 주민등록번호와 공동인증서를 미리 준비하세요.</p>
+    </div>
+    <ul class="notice-list">
+      <li>
+        <span class="notice-badge badge-new">NEW</span>
+        2025년 기초생활보장 생계급여 선정 기준 중위소득 기준 인상 (4인 가구 기준 월 6,097,773원의 32%)
+        <span class="notice-date">2025.01</span>
+      </li>
+      <li>
+        <span class="notice-badge badge-update">업데이트</span>
+        장애인 활동 지원 급여 단가 인상 — 시간당 16,150원으로 조정
+        <span class="notice-date">2025.01</span>
+      </li>
+      <li>
+        <span class="notice-badge badge-info">안내</span>
+        의료급여 1종 수급자 외래 진료 본인 부담금 1,000원 → 1,500원으로 변경
+        <span class="notice-date">2025.01</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 주요 복지 서비스 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">주요 복지 서비스</h2>
+      <p class="section-sub">삶의 여러 상황에 따라 받을 수 있는 복지 서비스를 확인하세요.</p>
+    </div>
+    <div class="card-grid">
+
+      <!-- 기초생활보장 -->
+      <article class="card">
+        <div class="card-icon icon-blue">🏠</div>
+        <span class="card-tag cat-blue">기초생활보장</span>
+        <h3>국민기초생활보장 제도</h3>
+        <p>소득이 일정 수준 이하인 가구에 생계·의료·주거·교육 급여를 지원하는 대표적인 공공 부조 제도입니다. 기준 중위소득에 따라 지원 내용이 결정됩니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 기준 중위소득 이하 가구</span>
+          <a href="welfare-types.html#basic" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+      <!-- 장애인 복지 -->
+      <article class="card">
+        <div class="card-icon icon-green">♿</div>
+        <span class="card-tag cat-green">장애인 복지</span>
+        <h3>장애인 복지 서비스</h3>
+        <p>장애인의 자립 생활을 지원하기 위한 활동 지원, 보조기기 지원, 장애 아동 발달 재활, 발달 장애인 지원 서비스 등 다양한 급여를 안내합니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 등록 장애인</span>
+          <a href="welfare-types.html#disability" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+      <!-- 노인 복지 -->
+      <article class="card">
+        <div class="card-icon icon-orange">👴</div>
+        <span class="card-tag cat-orange">노인 복지</span>
+        <h3>노인 복지 서비스</h3>
+        <p>65세 이상 어르신을 위한 기초연금, 노인 장기요양보험, 노인 일자리 및 사회 활동 지원 사업, 치매 안심 센터 등 맞춤형 서비스를 안내합니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 만 65세 이상</span>
+          <a href="welfare-types.html#elderly" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+      <!-- 아동·청소년 복지 -->
+      <article class="card">
+        <div class="card-icon icon-purple">👶</div>
+        <span class="card-tag cat-purple">아동·청소년</span>
+        <h3>아동·청소년 복지 서비스</h3>
+        <p>아동 수당, 아동 보호 서비스, 드림스타트, 지역 아동 센터 지원, 청소년 방과 후 돌봄 등 건강한 성장을 위한 지원 서비스를 안내합니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 0~18세 아동·청소년</span>
+          <a href="welfare-types.html#child" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+      <!-- 의료급여 -->
+      <article class="card">
+        <div class="card-icon icon-red">🏥</div>
+        <span class="card-tag cat-red">의료 지원</span>
+        <h3>의료급여 서비스</h3>
+        <p>생활이 어려운 국민에게 의료비를 지원하는 제도로, 1종·2종 수급자로 구분하여 외래·입원·약국 이용 시 본인 부담금을 대폭 줄여드립니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 의료급여 수급자</span>
+          <a href="welfare-types.html#medical" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+      <!-- 주거 지원 -->
+      <article class="card">
+        <div class="card-icon icon-teal">🏘️</div>
+        <span class="card-tag cat-teal">주거 지원</span>
+        <h3>주거 지원 서비스</h3>
+        <p>주거 급여(임차료·수선 유지 지원), 공공임대주택 우선 공급, 긴급 복지 주거 지원 등 안정적인 주거 생활을 돕는 제도를 안내합니다.</p>
+        <div class="card-footer">
+          <span class="card-meta">지원 대상: 기준 중위소득 47% 이하</span>
+          <a href="welfare-types.html#housing" class="card-link">자세히 보기 →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 신청 절차 ===== -->
+<section class="section" style="background: var(--surface-raised);">
+  <div class="container">
+    <div class="process-bg" style="background: var(--bg);">
+      <div class="section-header" style="margin-bottom: 0;">
+        <h2 class="section-title">복지 서비스 신청, 어렵지 않아요</h2>
+        <p class="section-sub" style="margin-bottom: 0;">4단계로 누구나 쉽게 신청할 수 있습니다.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h4>서비스 확인</h4>
+          <p>본인의 상황에 맞는 복지 서비스가 무엇인지 확인합니다. 복지로 또는 이 가이드를 활용하세요.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h4>서류 준비</h4>
+          <p>신청에 필요한 서류(소득·재산 증빙, 신분증 등)를 미리 준비합니다.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h4>신청 접수</h4>
+          <p>읍·면·동 주민센터 방문 또는 복지로 온라인(www.bokjiro.go.kr)에서 신청합니다.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h4>결과 통보</h4>
+          <p>담당 공무원 조사 후 지원 여부가 결정되며, 문자·우편으로 결과를 안내받습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 알아두면 좋은 정보 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">알아두면 좋은 복지 정보</h2>
+      <p class="section-sub">복지 서비스 이용 시 자주 묻는 사항을 정리했습니다.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>📋 신청 시 공통 필요 서류</h4>
+        <ul>
+          <li>사회보장급여 신청(변경)서</li>
+          <li>신분증 (주민등록증, 운전면허증 등)</li>
+          <li>금융 정보 제공 동의서</li>
+          <li>임대차 계약서 (해당 시)</li>
+          <li>소득·재산 관련 증빙 서류</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>🔗 유용한 온라인 서비스</h4>
+        <ul>
+          <li>복지로 (www.bokjiro.go.kr)</li>
+          <li>국민건강보험공단 (www.nhis.or.kr)</li>
+          <li>국민연금공단 (www.nps.or.kr)</li>
+          <li>장애인 서비스 (www.ableservice.or.kr)</li>
+          <li>주민센터 방문 신청</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>📞 복지 상담 전화</h4>
+        <ul>
+          <li>복지 상담 콜센터 ☎ 129</li>
+          <li>장애인 콜센터 ☎ 1577-1234</li>
+          <li>노인 상담 ☎ 1577-1389</li>
+          <li>아동학대 신고 ☎ 112</li>
+          <li>정신건강 위기 상담 ☎ 1577-0199</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <h4>❓ 자주 묻는 질문</h4>
+        <ul>
+          <li>기준 중위소득이란 무엇인가요?</li>
+          <li>동시에 여러 급여를 받을 수 있나요?</li>
+          <li>부양 의무자 기준이 폐지되었나요?</li>
+          <li>외국인도 복지 서비스를 받을 수 있나요?</li>
+          <li>신청 후 결과가 나오기까지 얼마나 걸리나요?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CTA ===== -->
+<section class="section-sm">
+  <div class="container">
+    <div class="cta-section">
+      <h2>나에게 맞는 복지 서비스가 있는지 확인해보세요</h2>
+      <p>복지로 홈페이지의 '복지 서비스 모의 계산'으로<br>내가 받을 수 있는 지원을 먼저 확인할 수 있습니다.</p>
+      <a href="contact.html" class="cta-btn">궁금한 점 문의하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 푸터 ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">KWS 복지 가이드</div>
+        <p class="footer-brand-desc">대한사회복지회가 제공하는 사회복지 서비스 안내 포털입니다.<br>보다 많은 분이 복지 혜택을 누릴 수 있도록 정보를 제공합니다.</p>
+      </div>
+      <div class="footer-col">
+        <h5>서비스</h5>
+        <ul>
+          <li><a href="welfare-types.html">복지 서비스 안내</a></li>
+          <li><a href="how-to-apply.html">신청 방법</a></li>
+          <li><a href="news.html">복지 소식</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>안내</h5>
+        <ul>
+          <li><a href="about.html">사이트 소개</a></li>
+          <li><a href="contact.html">문의하기</a></li>
+          <li><a href="privacy.html">개인정보처리방침</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 KWS 복지 가이드. 이 사이트는 정보 안내 목적으로 운영됩니다.</p>
+      <div class="footer-links">
+        <a href="privacy.html">개인정보처리방침</a>
+        <a href="contact.html">문의</a>
+        <a href="about.html">소개</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== 다크 모드 토글 ===== */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+  })();
+
+  document.getElementById('themeToggle').addEventListener('click', function() {
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = (current === 'dark') ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  /* ===== 모바일 햄버거 ===== */
+  var hamBtn = document.getElementById('hamBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  hamBtn.addEventListener('click', function() {
+    var isOpen = mobileNav.classList.toggle('open');
+    hamBtn.setAttribute('aria-expanded', isOpen);
+  });
+</script>
+</body>
+</html>

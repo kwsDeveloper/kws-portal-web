@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>소개 — KWS 복지 가이드</title>
+  <meta name="description" content="KWS 복지 가이드는 대한사회복지회가 제공하는 사회복지 서비스 안내 포털입니다. 누구나 쉽게 복지 정보를 찾을 수 있도록 도움을 드립니다.">
+  <link rel="canonical" href="https://kwsdeveloper.github.io/kws-portal-web/about.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#1D9BF0; --text:#0F1419; --sub:#536471;
+      --bg:#fff; --surface:#fff; --border:#EFF3F4; --divider:#D4D8DD;
+      --surface-raised:#F7F9FA; --shadow:0 2px 8px rgba(0,0,0,.08);
+      --radius:10px; --font:'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      --header-bg:linear-gradient(135deg,#0B3654 0%,#174F33 100%);
+      --header-accent:#4B9640;
+    }
+    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--text:#E7E9EA;--sub:#71767B;--bg:#0F0F0F;--surface:#1A1A1A;--border:#2F3336;--divider:#3A3D42;--surface-raised:#222327;}}
+    :root[data-theme="dark"]{--text:#E7E9EA;--sub:#71767B;--bg:#0F0F0F;--surface:#1A1A1A;--border:#2F3336;--divider:#3A3D42;--surface-raised:#222327;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4{font-weight:700;line-height:1.3;}
+    a{color:inherit;text-decoration:none;}
+    .site-header{background:var(--header-bg);border-bottom:3px solid var(--header-accent);position:sticky;top:0;z-index:100;}
+    .header-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .site-logo{display:flex;align-items:center;gap:10px;color:#fff;flex-shrink:0;}
+    .logo-mark{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.18);border:1.5px solid rgba(75,150,64,.6);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;}
+    .logo-text{display:flex;flex-direction:column;}
+    .logo-name{font-size:15px;font-weight:700;line-height:1.2;}
+    .logo-sub{font-size:10px;color:rgba(255,255,255,.65);}
+    .site-nav{display:flex;align-items:center;gap:4px;}
+    .nav-link{color:rgba(255,255,255,.82);font-size:13.5px;font-weight:500;padding:6px 12px;border-radius:6px;transition:background .15s,color .15s;}
+    .nav-link:hover,.nav-link.active{background:rgba(255,255,255,.15);color:#fff;}
+    .theme-btn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);background:none;border:none;cursor:pointer;transition:background .15s;}
+    .theme-btn:hover{background:rgba(255,255,255,.15);color:#fff;}
+    .ham-btn{display:none;width:36px;height:36px;border-radius:8px;background:none;border:none;cursor:pointer;color:rgba(255,255,255,.82);align-items:center;justify-content:center;}
+    .mobile-nav{display:none;flex-direction:column;background:#0B3654;border-bottom:2px solid var(--header-accent);}
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{color:rgba(255,255,255,.85);font-size:15px;font-weight:500;padding:14px 24px;border-top:1px solid rgba(255,255,255,.08);}
+    .mobile-nav a:hover{background:rgba(255,255,255,.08);color:#fff;}
+    @media(max-width:768px){.site-nav,.theme-btn{display:none;}.ham-btn{display:flex;}}
+
+    .page-hero{background:var(--header-bg);padding:48px 24px;text-align:center;}
+    .page-hero h1{color:#fff;font-size:clamp(24px,4vw,36px);margin-bottom:10px;}
+    .page-hero p{color:rgba(255,255,255,.72);font-size:15px;max-width:500px;margin:0 auto;}
+    .container{max-width:800px;margin:0 auto;padding:0 24px;}
+    .section{padding:56px 0;}
+    .prose{font-size:15px;color:var(--text);line-height:1.8;}
+    .prose h2{font-size:20px;margin:36px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--border);}
+    .prose h2:first-child{margin-top:0;}
+    .prose p{margin-bottom:16px;color:var(--sub);}
+    .prose p:last-child{margin-bottom:0;}
+    .prose strong{color:var(--text);}
+    .prose ul{list-style:none;padding:0;margin-bottom:16px;}
+    .prose ul li{padding:7px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--sub);display:flex;align-items:flex-start;gap:8px;}
+    .prose ul li:last-child{border-bottom:none;}
+    .prose ul li::before{content:"›";color:var(--primary);font-weight:700;flex-shrink:0;}
+    .value-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:20px 0 36px;}
+    .value-card{background:var(--surface-raised);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;}
+    .value-icon{font-size:28px;margin-bottom:12px;}
+    .value-card h4{font-size:14px;margin-bottom:8px;}
+    .value-card p{font-size:12.5px;color:var(--sub);}
+    .site-footer{background:var(--surface);border-top:1.5px solid var(--border);margin-top:0;}
+    .footer-bottom{max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .footer-copy{font-size:12px;color:var(--sub);}
+    .footer-links{display:flex;gap:16px;}
+    .footer-links a{font-size:12px;color:var(--sub);transition:color .15s;}
+    .footer-links a:hover{color:var(--primary);}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">
+      <div class="logo-mark">KW</div>
+      <div class="logo-text">
+        <span class="logo-name">KWS 복지 가이드</span>
+        <span class="logo-sub">Korea Social Welfare Guide</span>
+      </div>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html" class="nav-link">홈</a>
+      <a href="welfare-types.html" class="nav-link">복지 서비스</a>
+      <a href="how-to-apply.html" class="nav-link">신청 방법</a>
+      <a href="news.html" class="nav-link">복지 소식</a>
+      <a href="about.html" class="nav-link active">소개</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="theme-btn" id="themeToggle" aria-label="테마 전환">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="ham-btn" id="hamBtn" aria-label="메뉴">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">홈</a>
+    <a href="welfare-types.html">복지 서비스</a>
+    <a href="how-to-apply.html">신청 방법</a>
+    <a href="news.html">복지 소식</a>
+    <a href="about.html">소개</a>
+    <a href="contact.html">문의하기</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <h1>KWS 복지 가이드 소개</h1>
+  <p>사회복지 정보를 누구나 쉽게 찾을 수 있도록 만든 안내 포털입니다.</p>
+</div>
+
+<main>
+  <div class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>사이트 소개</h2>
+        <p><strong>KWS 복지 가이드</strong>는 대한사회복지회(KWS, Korea Social Welfare Society)가 제공하는 사회복지 서비스 안내 포털입니다.</p>
+        <p>복지 서비스는 국민의 권리이지만, 어디서 어떻게 신청해야 하는지 몰라 혜택을 받지 못하는 경우가 많습니다. 이 사이트는 기초생활보장, 장애인 복지, 노인 복지, 아동·청소년 복지, 의료급여, 주거 지원 등 다양한 복지 서비스의 내용과 신청 방법을 쉬운 언어로 안내합니다.</p>
+
+        <h2>운영 목적</h2>
+        <p>이 사이트는 다음의 목적으로 운영됩니다.</p>
+        <ul>
+          <li>복잡한 복지 제도를 누구나 이해할 수 있도록 쉽게 설명</li>
+          <li>지원 대상, 지원 내용, 신청 방법을 한 곳에서 확인 가능</li>
+          <li>복지 서비스 변경 사항을 신속하게 안내</li>
+          <li>복지 사각지대 해소를 위한 정보 접근성 향상</li>
+        </ul>
+
+        <h2>핵심 가치</h2>
+      </div>
+
+      <div class="value-grid">
+        <div class="value-card">
+          <div class="value-icon">📖</div>
+          <h4>쉬운 정보</h4>
+          <p>어려운 행정 용어 대신 누구나 이해할 수 있는 언어로 설명합니다.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h4>정확한 안내</h4>
+          <p>최신 정책을 반영하여 정확하고 신뢰할 수 있는 정보를 제공합니다.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">❤️</div>
+          <h4>모두를 위한</h4>
+          <p>노인, 장애인, 아동 등 모든 분이 편리하게 이용할 수 있도록 설계합니다.</p>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h2>제공 정보 범위</h2>
+        <p>이 사이트에서 안내하는 정보는 다음과 같습니다.</p>
+        <ul>
+          <li>국민기초생활보장 (생계·의료·주거·교육 급여)</li>
+          <li>장애인 복지 (활동 지원, 보조기기, 발달 재활 서비스)</li>
+          <li>노인 복지 (기초연금, 장기요양보험, 노인 일자리)</li>
+          <li>아동·청소년 복지 (아동 수당, 드림스타트, 방과 후 돌봄)</li>
+          <li>의료급여 (1종·2종 수급자 의료비 지원)</li>
+          <li>주거 지원 (주거 급여, 공공임대주택)</li>
+        </ul>
+
+        <h2>유의 사항</h2>
+        <p>이 사이트에서 제공하는 정보는 일반적인 안내를 목적으로 하며, 개별 사례에 따라 지원 내용이 다를 수 있습니다. 구체적인 상담은 거주지 읍·면·동 주민센터 또는 복지 상담 콜센터(☎ 129)를 이용하시기 바랍니다.</p>
+        <p>정책 내용은 정부의 결정에 따라 변경될 수 있으므로, 신청 전 반드시 해당 기관에 최신 내용을 확인하시기 바랍니다.</p>
+
+        <h2>문의</h2>
+        <p>사이트 운영과 관련된 문의는 <a href="contact.html" style="color:var(--primary);">문의하기 페이지</a>를 통해 연락해 주세요.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 KWS 복지 가이드. 이 사이트는 정보 안내 목적으로 운영됩니다.</p>
+    <div class="footer-links">
+      <a href="privacy.html">개인정보처리방침</a>
+      <a href="contact.html">문의</a>
+      <a href="about.html">소개</a>
+    </div>
+  </div>
+</footer>
+<script>
+  (function(){var s=localStorage.getItem('theme');if(s)document.documentElement.setAttribute('data-theme',s);})();
+  document.getElementById('themeToggle').addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme');var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('theme',n);});
+  var h=document.getElementById('hamBtn'),m=document.getElementById('mobileNav');
+  h.addEventListener('click',function(){m.classList.toggle('open');});
+</script>
+</body>
+</html>
