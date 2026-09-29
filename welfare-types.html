@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>복지 서비스 안내 — KWS 복지 가이드</title>
-  <meta name="description" content="기초생활보장, 장애인 복지, 노인 복지, 아동복지, 의료급여, 주거 지원 등 주요 사회복지 서비스의 지원 대상과 내용을 상세히 안내합니다.">
+  <title>KWS 5대 사업 분야 — 대한사회복지회</title>
+  <meta name="description" content="대한사회복지회(KWS) 5대 복지 사업 분야: 아동복지, 장애아동복지, 한부모가족복지, 어르신복지, 지역사회복지. 산하 40여 개 기관을 통해 소외 이웃을 지원합니다.">
   <link rel="canonical" href="https://kwsdeveloper.github.io/kws-portal-web/welfare-types.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,206 +126,161 @@
 <main>
   <div class="section">
     <div class="container">
-      <nav class="tab-nav" role="tablist" aria-label="복지 서비스 유형">
-        <button class="tab-btn active" data-tab="basic" role="tab" aria-selected="true">🏠 기초생활보장</button>
-        <button class="tab-btn" data-tab="disability" role="tab">♿ 장애인 복지</button>
-        <button class="tab-btn" data-tab="elderly" role="tab">👴 노인 복지</button>
-        <button class="tab-btn" data-tab="child" role="tab">👶 아동·청소년</button>
-        <button class="tab-btn" data-tab="medical" role="tab">🏥 의료급여</button>
-        <button class="tab-btn" data-tab="housing" role="tab">🏘️ 주거 지원</button>
+      <nav class="tab-nav" role="tablist" aria-label="KWS 복지 사업 분야">
+        <button class="tab-btn active" data-tab="child" role="tab" aria-selected="true">👶 아동복지</button>
+        <button class="tab-btn" data-tab="disability" role="tab">🤝 장애아동복지</button>
+        <button class="tab-btn" data-tab="family" role="tab">👨‍👧 한부모가족복지</button>
+        <button class="tab-btn" data-tab="elderly" role="tab">👴 어르신복지</button>
+        <button class="tab-btn" data-tab="community" role="tab">🏘️ 지역사회복지</button>
       </nav>
 
-      <!-- 기초생활보장 -->
-      <section class="service-section active" id="tab-basic">
-        <div class="service-header">
-          <div class="service-icon-lg icon-blue">🏠</div>
-          <div>
-            <span class="service-tag cat-blue">기초생활보장</span>
-            <h1 class="service-title">국민기초생활보장 제도</h1>
-            <p class="service-desc">생활이 어려운 분들에게 생계·의료·주거·교육 급여를 지원하는 대표 공공부조 제도</p>
-          </div>
-        </div>
-        <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">보건복지부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 기준</div><div class="info-card-value">기준 중위소득 30~50% 이하</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">읍·면·동 주민센터</div></div>
-        </div>
-        <div class="detail-box">
-          <h3>📋 지원 내용</h3>
-          <ul>
-            <li><strong>생계급여</strong> — 기준 중위소득 32% 이하 가구에 현금 지급. 2025년 4인 가구 기준 월 최대 1,951,287원</li>
-            <li><strong>의료급여</strong> — 기준 중위소득 40% 이하 가구. 외래·입원·약제비 본인 부담 최소화</li>
-            <li><strong>주거급여</strong> — 기준 중위소득 47% 이하 가구. 임차료 지원 또는 수선 유지 급여</li>
-            <li><strong>교육급여</strong> — 기준 중위소득 50% 이하 가구. 입학금·수업료·학용품비·교과서 대금 지원</li>
-          </ul>
-        </div>
-        <div class="detail-box">
-          <h3>👥 신청 자격</h3>
-          <ul>
-            <li>소득 인정액이 급여 종류별 선정 기준 이하인 가구</li>
-            <li>부양의무자 기준: 생계·의료급여는 부양의무자 기준 대부분 폐지(노인·한부모 가구 등)</li>
-            <li>재산 기준: 일반재산, 금융재산, 자동차 등 환산 후 소득 인정액 산정</li>
-            <li>외국인: 한국인 배우자·자녀가 있는 경우 신청 가능</li>
-          </ul>
-        </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>꼭 확인하세요!</strong> 기준 중위소득은 매년 1월 변경됩니다. 신청 전 당해 연도 기준을 복지로(www.bokjiro.go.kr)에서 확인하세요. 모의 계산 기능으로 사전 예측도 가능합니다.</p></div>
-      </section>
-
-      <!-- 장애인 복지 -->
-      <section class="service-section" id="tab-disability">
-        <div class="service-header">
-          <div class="service-icon-lg icon-green">♿</div>
-          <div>
-            <span class="service-tag cat-green">장애인 복지</span>
-            <h1 class="service-title">장애인 복지 서비스</h1>
-            <p class="service-desc">등록 장애인의 자립 생활을 지원하는 다양한 서비스 안내</p>
-          </div>
-        </div>
-        <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">보건복지부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">등록 장애인 (1~6급 → 정도)</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">읍·면·동 주민센터</div></div>
-        </div>
-        <div class="detail-box">
-          <h3>📋 주요 서비스</h3>
-          <ul>
-            <li><strong>장애인 활동 지원</strong> — 일상생활·사회활동이 어려운 장애인에게 활동 보조인 파견. 시간당 16,150원 (2025년 기준)</li>
-            <li><strong>보조기기 지원</strong> — 보청기, 전동 휠체어, 의수족 등 보조기기 급여 및 대여</li>
-            <li><strong>장애 아동 발달 재활</strong> — 만 18세 미만 발달 장애 아동 언어·행동·인지 재활 서비스</li>
-            <li><strong>발달 장애인 지원</strong> — 발달 장애인 주간 활동 서비스, 공동생활가정(그룹홈) 지원</li>
-            <li><strong>장애인 연금</strong> — 중증 장애인 중 소득·재산이 낮은 분에게 월 최대 403,180원 지급</li>
-            <li><strong>장애인 의료비 지원</strong> — 의료급여 장애인 대상 보장구 급여, 건강검진 우선 지원</li>
-          </ul>
-        </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>장애 등록 절차</strong>: 장애인 서비스 이용 전 장애인 등록이 선행되어야 합니다. 주민센터에서 신청 → 국민연금공단 심사 → 장애 등급 결정 순서로 진행됩니다.</p></div>
-      </section>
-
-      <!-- 노인 복지 -->
-      <section class="service-section" id="tab-elderly">
-        <div class="service-header">
-          <div class="service-icon-lg icon-orange">👴</div>
-          <div>
-            <span class="service-tag cat-orange">노인 복지</span>
-            <h1 class="service-title">노인 복지 서비스</h1>
-            <p class="service-desc">만 65세 이상 어르신을 위한 다양한 지원 서비스</p>
-          </div>
-        </div>
-        <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">보건복지부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">만 65세 이상</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">주민센터, 국민연금공단</div></div>
-        </div>
-        <div class="detail-box">
-          <h3>📋 주요 서비스</h3>
-          <ul>
-            <li><strong>기초연금</strong> — 만 65세 이상, 소득 하위 70%에 해당하는 어르신에게 월 최대 334,810원 지급 (2025년 기준)</li>
-            <li><strong>노인 장기요양보험</strong> — 치매·중풍 등으로 일상생활이 어려운 어르신에게 요양 서비스 제공 (1~5등급, 인지지원등급)</li>
-            <li><strong>노인 일자리 사회활동 지원</strong> — 어르신의 사회 참여와 소득 보충을 위한 일자리 사업 (공익 활동, 사회서비스형 등)</li>
-            <li><strong>치매 안심 센터</strong> — 전국 256개소 운영. 무료 치매 검진, 치매 환자 가족 교육 및 지원</li>
-            <li><strong>노인 돌봄 서비스</strong> — 독거 어르신 안부 확인, 생활 교육, 외출 동행 서비스</li>
-          </ul>
-        </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>기초연금과 국민연금은 별개</strong>입니다. 국민연금을 받더라도 소득 기준을 충족하면 기초연금을 받을 수 있습니다. 가까운 읍·면·동 주민센터 또는 국민연금공단 지사에서 확인하세요.</p></div>
-      </section>
-
-      <!-- 아동·청소년 -->
-      <section class="service-section" id="tab-child">
+      <!-- 아동복지 -->
+      <section class="service-section active" id="tab-child">
         <div class="service-header">
           <div class="service-icon-lg icon-purple">👶</div>
           <div>
-            <span class="service-tag cat-purple">아동·청소년</span>
-            <h1 class="service-title">아동·청소년 복지 서비스</h1>
-            <p class="service-desc">건강한 성장 환경을 만들기 위한 아동·청소년 지원 서비스</p>
+            <span class="service-tag cat-purple">아동복지</span>
+            <h1 class="service-title">아동복지 사업</h1>
+            <p class="service-desc">보호가 필요한 아동의 대안 양육과 자립준비청년의 사회 정착을 지원합니다</p>
           </div>
         </div>
         <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">보건복지부·여성가족부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">출생 ~ 만 18세</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">주민센터, 지역아동센터</div></div>
+          <div class="info-card"><div class="info-card-label">설립 연도</div><div class="info-card-value">1954년</div></div>
+          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">보호 필요 아동·자립준비청년</div></div>
+          <div class="info-card"><div class="info-card-label">문의</div><div class="info-card-value">☎ 1577-5115</div></div>
         </div>
         <div class="detail-box">
-          <h3>📋 주요 서비스</h3>
+          <h3>📋 주요 사업 내용</h3>
           <ul>
-            <li><strong>아동 수당</strong> — 만 8세 미만 아동에게 월 10만 원 지급 (보호자 신청)</li>
-            <li><strong>드림스타트</strong> — 취약 계층 아동(0~12세) 맞춤형 통합 서비스 (건강, 교육, 복지)</li>
-            <li><strong>지역 아동 센터</strong> — 저소득 아동 방과 후 돌봄, 급식, 숙제 지도 서비스</li>
-            <li><strong>가정 위탁 지원</strong> — 가정 내 보호가 어려운 아동을 위탁 가정에서 보호</li>
-            <li><strong>청소년 방과 후 아카데미</strong> — 학교 밖 청소년을 위한 학습·체험 프로그램</li>
-            <li><strong>아동학대 예방</strong> — 아동보호전문기관을 통한 피해 아동 상담·치료 지원</li>
+            <li><strong>아동복지시설 운영</strong> — 보호 필요 아동의 생활·교육·의료·정서 지원을 통합적으로 제공하는 생활시설 운영</li>
+            <li><strong>공동생활가정(그룹홈)</strong> — 소규모 가정형 시설에서 가족적인 환경으로 아동 보호</li>
+            <li><strong>가정 위탁 지원</strong> — 친가정 복귀나 입양이 어려운 아동을 위탁 가정에서 보호·양육</li>
+            <li><strong>자립준비청년 지원</strong> — 보호 종료 아동(자립준비청년)의 주거·취업·심리 등 자립 전반 지원</li>
+            <li><strong>자립준비청년 캠페인</strong> — 사회에 첫발을 내딛는 자립준비청년이 안착할 수 있도록 후원 연계</li>
           </ul>
         </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>아동 수당</strong>은 주민센터 방문 또는 복지로 온라인으로 간편하게 신청할 수 있습니다. 아동 출생 후 60일 이내 신청 시 출생일부터 소급 지급됩니다.</p></div>
+        <div class="detail-box">
+          <h3>🤲 참여 방법</h3>
+          <ul>
+            <li>정기 후원: 매월 일정 금액을 통해 지속적인 아동 보호 지원</li>
+            <li>물품 후원: 학용품·생활용품·의류 등 물품 기부</li>
+            <li>자원봉사: 아동 돌봄·학습 지도·행사 운영 등 봉사 활동</li>
+            <li>기업 CSR 연계: 사회공헌 활동으로 아동복지시설과 결연</li>
+          </ul>
+        </div>
+        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>자립준비청년 캠페인</strong>에 참여하면 만 18세에 시설을 떠나야 하는 청년들의 새 출발을 직접 응원할 수 있습니다. 후원 문의: ☎ 1577-5115</p></div>
       </section>
 
-      <!-- 의료급여 -->
-      <section class="service-section" id="tab-medical">
+      <!-- 장애아동복지 -->
+      <section class="service-section" id="tab-disability">
         <div class="service-header">
-          <div class="service-icon-lg icon-red">🏥</div>
+          <div class="service-icon-lg icon-blue">🤝</div>
           <div>
-            <span class="service-tag cat-red">의료 지원</span>
-            <h1 class="service-title">의료급여 서비스</h1>
-            <p class="service-desc">생활이 어려운 국민의 의료비 부담을 줄이는 의료 지원 제도</p>
+            <span class="service-tag cat-blue">장애아동복지</span>
+            <h1 class="service-title">장애아동복지 사업</h1>
+            <p class="service-desc">장애 아동의 재활·교육 지원과 학대 피해 아동 보호·회복 서비스를 제공합니다</p>
           </div>
         </div>
         <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">보건복지부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 종류</div><div class="info-card-value">1종 및 2종 수급자</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">읍·면·동 주민센터</div></div>
+          <div class="info-card"><div class="info-card-label">사업 분야</div><div class="info-card-value">재활·교육·보호</div></div>
+          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">장애·학대피해 아동</div></div>
+          <div class="info-card"><div class="info-card-label">문의</div><div class="info-card-value">☎ 1577-5115</div></div>
         </div>
         <div class="detail-box">
-          <h3>📋 1종과 2종의 차이</h3>
+          <h3>📋 주요 사업 내용</h3>
           <ul>
-            <li><strong>의료급여 1종</strong> — 근로 능력이 없는 수급자 (입원비 본인 부담 없음, 외래 1,500원)</li>
-            <li><strong>의료급여 2종</strong> — 근로 능력이 있는 수급자 (외래 1,000원, 입원 10% 본인 부담)</li>
-          </ul>
-          <p style="margin-top:12px">의료급여 수급자는 건강보험 가입자에 비해 훨씬 낮은 본인 부담금으로 의료 서비스를 이용할 수 있습니다. 희귀 난치성 질환자는 추가 지원을 받을 수 있습니다.</p>
-        </div>
-        <div class="detail-box">
-          <h3>🏥 이용 방법</h3>
-          <ul>
-            <li>1차: 의원급 의료기관 (동네 병원) 이용이 원칙</li>
-            <li>2차: 병원·종합병원 이용 시 의원 진료 의뢰서 필요</li>
-            <li>3차: 상급종합병원 이용 시 2차 의뢰서 필요</li>
-            <li>응급 상황은 단계에 관계없이 이용 가능</li>
+            <li><strong>장애아동복지지원센터 운영</strong> — 발달 장애 아동의 언어·인지·행동 재활 치료 및 특수 교육 지원</li>
+            <li><strong>인형키링 캠페인</strong> — 학대 피해 아동을 위한 후원 캠페인. 인형키링 구매 수익이 피해 아동 치료비로 사용</li>
+            <li><strong>아동보호전문기관 협력</strong> — 학대 피해 아동 발굴·보호·심리 치료 연계</li>
+            <li><strong>조기 개입 프로그램</strong> — 발달 지연 아동 조기 발견·개입으로 장애 심화 예방</li>
+            <li><strong>부모 교육</strong> — 장애 아동 양육 가족을 위한 교육·상담·휴식 지원</li>
           </ul>
         </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p>의료급여 수급자 자격은 기초생활수급자 선정 시 함께 결정됩니다. 별도 신청 없이 주민센터에서 기초생활보장 신청 시 의료급여 자격이 함께 부여됩니다.</p></div>
+        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>인형키링 캠페인</strong>: 귀여운 인형키링 하나가 학대 피해 아동에게 치유의 시간을 선물합니다. 소소한 소비로 큰 변화를 만들어 보세요.</p></div>
       </section>
 
-      <!-- 주거 지원 -->
-      <section class="service-section" id="tab-housing">
+      <!-- 한부모가족복지 -->
+      <section class="service-section" id="tab-family">
+        <div class="service-header">
+          <div class="service-icon-lg icon-orange">👨‍👧</div>
+          <div>
+            <span class="service-tag cat-orange">한부모가족복지</span>
+            <h1 class="service-title">한부모가족복지 사업</h1>
+            <p class="service-desc">한부모·미혼모·미혼부 가족의 경제적 자립과 건강한 가정을 지원합니다</p>
+          </div>
+        </div>
+        <div class="info-grid-3">
+          <div class="info-card"><div class="info-card-label">사업 분야</div><div class="info-card-value">생활·직업·주거 지원</div></div>
+          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">한부모·미혼모·미혼부 가족</div></div>
+          <div class="info-card"><div class="info-card-label">문의</div><div class="info-card-value">☎ 1577-5115</div></div>
+        </div>
+        <div class="detail-box">
+          <h3>📋 주요 사업 내용</h3>
+          <ul>
+            <li><strong>한부모가족복지시설 운영</strong> — 생계가 어려운 한부모 가족에게 주거·생활비·아동 양육비 지원</li>
+            <li><strong>미혼모·부자 지원</strong> — 미혼 부모와 아동이 안정적으로 생활할 수 있도록 종합 지원</li>
+            <li><strong>직업 능력 개발</strong> — 취업 연계 훈련, 자격증 취득 지원으로 경제적 자립 촉진</li>
+            <li><strong>아동 양육 지원</strong> — 자녀 교육비·보육비 지원 및 육아 상담 서비스</li>
+            <li><strong>심리·정서 지원</strong> — 상담 및 자조 모임을 통해 정서적 안정과 사회 적응 지원</li>
+          </ul>
+        </div>
+        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p>한부모가족 지원은 KWS 산하 복지시설을 통해 신청할 수 있습니다. 거주 지역 내 가까운 산하기관 안내는 ☎ 1577-5115로 문의하세요.</p></div>
+      </section>
+
+      <!-- 어르신복지 -->
+      <section class="service-section" id="tab-elderly">
+        <div class="service-header">
+          <div class="service-icon-lg icon-green">👴</div>
+          <div>
+            <span class="service-tag cat-green">어르신복지</span>
+            <h1 class="service-title">어르신복지 사업</h1>
+            <p class="service-desc">독거·국가유공 어르신의 돌봄과 건강한 노년 생활을 지원합니다</p>
+          </div>
+        </div>
+        <div class="info-grid-3">
+          <div class="info-card"><div class="info-card-label">사업 분야</div><div class="info-card-value">돌봄·의료·생활 지원</div></div>
+          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">독거·국가유공 어르신</div></div>
+          <div class="info-card"><div class="info-card-label">문의</div><div class="info-card-value">☎ 1577-5115</div></div>
+        </div>
+        <div class="detail-box">
+          <h3>📋 주요 사업 내용</h3>
+          <ul>
+            <li><strong>어르신복지시설 운영</strong> — 노인요양원·노인양로원 등 시설에서 전문적인 돌봄 서비스 제공</li>
+            <li><strong>독거 어르신 생활 지원</strong> — 정기 안부 확인, 무료급식, 생필품 지원으로 홀로 사는 어르신 보호</li>
+            <li><strong>국가유공 어르신 의료보조기기 지원</strong> — 보청기·휠체어·지팡이 등 의료보조기기를 필요한 어르신에게 지원하는 캠페인</li>
+            <li><strong>사회 참여 프로그램</strong> — 문화·여가 활동, 건강 관리 프로그램으로 활기찬 노년 생활 지원</li>
+            <li><strong>치매 예방 교육</strong> — 인지 활동 프로그램과 건강 교육으로 치매 예방 지원</li>
+          </ul>
+        </div>
+        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>국가유공 어르신 의료보조기기 지원 캠페인</strong>에 후원하시면 나라를 위해 헌신하신 어르신들의 일상을 직접 지원할 수 있습니다.</p></div>
+      </section>
+
+      <!-- 지역사회복지 -->
+      <section class="service-section" id="tab-community">
         <div class="service-header">
           <div class="service-icon-lg icon-teal">🏘️</div>
           <div>
-            <span class="service-tag cat-teal">주거 지원</span>
-            <h1 class="service-title">주거 지원 서비스</h1>
-            <p class="service-desc">안정적인 주거 생활을 돕는 임차료·수선·공공임대 지원</p>
+            <span class="service-tag cat-teal">지역사회복지</span>
+            <h1 class="service-title">지역사회복지 사업</h1>
+            <p class="service-desc">지역 사회 복지 사각지대를 발굴하고 나눔 캠페인으로 공동체를 강화합니다</p>
           </div>
         </div>
         <div class="info-grid-3">
-          <div class="info-card"><div class="info-card-label">소관 부처</div><div class="info-card-value">국토교통부</div></div>
-          <div class="info-card"><div class="info-card-label">지원 기준</div><div class="info-card-value">기준 중위소득 47% 이하</div></div>
-          <div class="info-card"><div class="info-card-label">신청 기관</div><div class="info-card-value">읍·면·동 주민센터</div></div>
+          <div class="info-card"><div class="info-card-label">사업 분야</div><div class="info-card-value">사각지대 발굴·나눔</div></div>
+          <div class="info-card"><div class="info-card-label">지원 대상</div><div class="info-card-value">복지 사각지대 이웃</div></div>
+          <div class="info-card"><div class="info-card-label">문의</div><div class="info-card-value">☎ 1577-5115</div></div>
         </div>
         <div class="detail-box">
-          <h3>📋 주거급여 종류</h3>
+          <h3>📋 주요 사업 내용</h3>
           <ul>
-            <li><strong>임차급여</strong> — 타인 소유 주택 임차 거주 시 실제 임차료 범위 내에서 지역별 기준 임대료 지급</li>
-            <li><strong>수선유지급여</strong> — 자가 주택 거주 시 주택의 노후도에 따라 보수 비용 지원 (경/중/대보수로 구분)</li>
-            <li><strong>공공임대주택 우선공급</strong> — 영구임대, 국민임대, 행복주택 등 우선 입주 기회 제공</li>
+            <li><strong>소망박스 캠페인</strong> — 결식 아동·독거 어르신·한부모 가족에게 생필품과 식료품을 담은 소망박스 전달</li>
+            <li><strong>기부반지 캠페인</strong> — 장애 아동 교육비 마련을 위한 나눔 캠페인. 반지 구매로 특별한 기부에 동참</li>
+            <li><strong>We대한가게 운영</strong> — KWS 공식 후원 연계 쇼핑몰로 의미 있는 소비를 통한 나눔 실현</li>
+            <li><strong>복지 사각지대 발굴</strong> — 지역 내 복지 서비스에서 소외된 이웃을 발굴·연결하는 아웃리치 사업</li>
+            <li><strong>지역 복지 자원 연계</strong> — 지역 내 다양한 복지 자원과 협력하여 이웃 지원의 효과 극대화</li>
           </ul>
         </div>
-        <div class="detail-box">
-          <h3>🏠 2025년 임차급여 기준 임대료 (서울 기준)</h3>
-          <ul>
-            <li>1인 가구: 월 341,000원</li>
-            <li>2인 가구: 월 382,000원</li>
-            <li>3인 가구: 월 455,000원</li>
-            <li>4인 가구: 월 527,000원</li>
-          </ul>
-          <p style="margin-top:8px">※ 지역별(서울·경기·광역시·그 외)로 기준 임대료가 다르게 적용됩니다.</p>
-        </div>
-        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p>주거급여는 기초생활보장 수급자가 아니어도 신청할 수 있습니다. 소득 기준 (기준 중위소득 47% 이하)을 충족하면 별도로 신청하세요.</p></div>
+        <div class="apply-tip"><span style="font-size:20px;flex-shrink:0">💡</span><p><strong>We대한가게</strong>에서 KWS 관련 상품을 구매하시면 판매 수익이 복지 사업에 사용됩니다. 일상 속 소비가 이웃 사랑이 됩니다.</p></div>
       </section>
 
     </div>
