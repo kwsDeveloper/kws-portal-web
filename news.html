@@ -105,26 +105,38 @@
 
 <div class="page-hero">
   <h1>KWS 나눔 소식</h1>
-  <p>대한사회복지회의 최신 캠페인과 사업 소식을 확인하세요.</p>
+  <p>대한사회복지회의 주요 캠페인을 소개합니다. 최신 소식은 공식 홈페이지에서 확인하세요.</p>
 </div>
 
 <main>
   <div class="section">
     <div class="container">
+
+      <!-- 공식 홈페이지 안내 배너 -->
+      <a href="https://www.kws.or.kr" target="_blank" rel="noopener"
+         style="display:flex;align-items:center;gap:14px;background:rgba(29,155,240,.08);border:1.5px solid rgba(29,155,240,.3);border-radius:10px;padding:16px 20px;margin-bottom:32px;text-decoration:none;transition:background .15s;"
+         onmouseover="this.style.background='rgba(29,155,240,.14)'" onmouseout="this.style.background='rgba(29,155,240,.08)'">
+        <span style="font-size:22px;flex-shrink:0">🌐</span>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:var(--primary);margin-bottom:2px;">최신 소식은 KWS 공식 홈페이지에서 확인하세요</div>
+          <div style="font-size:12.5px;color:var(--sub);">www.kws.or.kr — 캠페인 현황·나눔 소식·공지사항이 실시간으로 업데이트됩니다.</div>
+        </div>
+        <span style="margin-left:auto;font-size:18px;color:var(--primary);flex-shrink:0;">→</span>
+      </a>
+
       <div class="news-layout">
         <!-- 뉴스 목록 -->
         <div>
           <article class="news-card">
             <div class="news-card-top">
-              <span class="news-badge badge-new">NEW</span>
+              <span class="news-badge badge-new">캠페인</span>
               <span class="news-badge badge-policy">아동복지</span>
-              <span class="news-date">2025.09</span>
             </div>
             <h3>자립준비청년 자립 지원 캠페인 — 첫 출발을 함께해 주세요</h3>
             <p>보호시설에서 만 18세가 되어 퇴소하는 자립준비청년(보호 종료 아동)은 갑자기 홀로 사회에 나서야 합니다. KWS는 이 청년들의 주거·생활·심리 자립을 지원하는 캠페인을 진행하고 있습니다. 여러분의 후원이 새 출발의 디딤돌이 됩니다.</p>
             <div class="news-card-foot">
               <span class="news-tag">👶 아동복지</span>
-              <span class="read-more">후원 참여하기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 참여하기 →</a>
             </div>
           </article>
 
@@ -132,13 +144,12 @@
             <div class="news-card-top">
               <span class="news-badge badge-update">캠페인</span>
               <span class="news-badge badge-policy">장애아동복지</span>
-              <span class="news-date">2025.08</span>
             </div>
             <h3>인형키링 캠페인 — 학대 피해 아동에게 치유의 시간을</h3>
             <p>귀여운 인형키링 하나에 담긴 따뜻한 마음이 학대 피해 아동의 심리 치료비가 됩니다. KWS 인형키링 캠페인은 아동 심리 치료와 회복 프로그램 운영을 위한 후원을 연계합니다. 소소한 나눔이 한 아이의 삶을 바꿀 수 있습니다.</p>
             <div class="news-card-foot">
               <span class="news-tag">🤝 장애아동복지</span>
-              <span class="read-more">캠페인 참여하기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 참여하기 →</a>
             </div>
           </article>
 
@@ -146,52 +157,50 @@
             <div class="news-card-top">
               <span class="news-badge badge-update">캠페인</span>
               <span class="news-badge badge-benefit">지역사회복지</span>
-              <span class="news-date">2025.07</span>
             </div>
             <h3>소망박스 캠페인 — 결식 아동과 독거 어르신에게 희망 한 박스</h3>
-            <p>결식 아동, 독거 어르신, 한부모 가족에게 생필품과 영양 식품을 담은 소망박스를 전달하는 캠페인입니다. KWS 산하 40여 개 기관의 네트워크를 통해 복지 사각지대까지 소망박스가 전달됩니다. 지금 참여해 주세요.</p>
+            <p>결식 아동, 독거 어르신, 한부모 가족에게 생필품과 영양 식품을 담은 소망박스를 전달하는 캠페인입니다. KWS 산하기관 네트워크를 통해 복지 사각지대까지 소망박스가 전달됩니다. 지금 참여해 주세요.</p>
             <div class="news-card-foot">
               <span class="news-tag">🏘️ 지역사회복지</span>
-              <span class="read-more">참여하기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 참여하기 →</a>
             </div>
           </article>
 
           <article class="news-card">
             <div class="news-card-top">
+              <span class="news-badge badge-policy">캠페인</span>
               <span class="news-badge badge-policy">장애아동복지</span>
-              <span class="news-date">2025.06</span>
             </div>
             <h3>기부반지 캠페인 — 장애 아동 교육을 위한 특별한 선물</h3>
-            <p>기부반지를 구매하면 장애 아동의 특수 교육비와 재활 치료비를 지원할 수 있습니다. KWS 기부반지는 소중한 사람에게 선물하면서 동시에 장애 아동에게 교육 기회를 선물하는 의미 있는 나눔입니다. 나에게도, 아이에게도 특별한 반지입니다.</p>
+            <p>기부반지를 구매하면 장애 아동의 특수 교육비와 재활 치료비를 지원할 수 있습니다. KWS 기부반지는 소중한 사람에게 선물하면서 동시에 장애 아동에게 교육 기회를 선물하는 의미 있는 나눔입니다.</p>
             <div class="news-card-foot">
               <span class="news-tag">🤝 장애아동복지</span>
-              <span class="read-more">기부반지 보기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 보기 →</a>
             </div>
           </article>
 
           <article class="news-card">
             <div class="news-card-top">
+              <span class="news-badge badge-benefit">캠페인</span>
               <span class="news-badge badge-benefit">어르신복지</span>
-              <span class="news-date">2025.05</span>
             </div>
             <h3>국가유공 어르신 의료보조기기 지원 캠페인</h3>
             <p>나라를 위해 헌신하신 국가유공 어르신들 중 보청기·휠체어·지팡이 등이 필요하지만 경제적 형편으로 구하기 어려운 분들을 지원합니다. 고마운 분들의 더 나은 일상을 위해 KWS와 함께해 주세요.</p>
             <div class="news-card-foot">
               <span class="news-tag">👴 어르신복지</span>
-              <span class="read-more">후원하기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 후원하기 →</a>
             </div>
           </article>
 
           <article class="news-card">
             <div class="news-card-top">
               <span class="news-badge badge-policy">법인 소식</span>
-              <span class="news-date">2025.06</span>
             </div>
             <h3>한국가이드스타 공익법인 평가 4년 연속 별 3점 만점 달성</h3>
             <p>대한사회복지회가 한국가이드스타의 공익법인 투명성·공익성·재정 건전성 종합 평가에서 4년 연속 별 3점 만점을 받았습니다. KWS는 후원금 사용 내역을 투명하게 공개하며 신뢰받는 법인 운영을 이어가고 있습니다.</p>
             <div class="news-card-foot">
               <span class="news-tag">🏆 법인 소식</span>
-              <span class="read-more">자세히 보기 →</span>
+              <a href="https://www.kws.or.kr" target="_blank" rel="noopener" class="read-more">공식 홈에서 보기 →</a>
             </div>
           </article>
         </div>
@@ -213,14 +222,13 @@
               <li>기부금 영수증 발급 가능</li>
             </ul>
           </div>
-          <div class="sidebar-card">
-            <h4>💚 진행 중인 캠페인</h4>
+          <div class="sidebar-card" style="border-color:rgba(29,155,240,.3);">
+            <h4>🌐 공식 홈페이지</h4>
             <ul class="sidebar-list">
-              <li>자립준비청년 자립 지원</li>
-              <li>인형키링 (학대피해아동)</li>
-              <li>소망박스 (결식·독거 지원)</li>
-              <li>기부반지 (장애아동 교육)</li>
-              <li>국가유공 어르신 의료보조기기</li>
+              <li><a href="https://www.kws.or.kr" target="_blank" rel="noopener" style="color:var(--primary);font-weight:700;">www.kws.or.kr</a></li>
+              <li>최신 캠페인 소식</li>
+              <li>공지사항 및 나눔 이야기</li>
+              <li>산하기관 안내</li>
             </ul>
           </div>
         </aside>
